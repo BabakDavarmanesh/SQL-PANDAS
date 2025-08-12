@@ -67,6 +67,7 @@ Select prs.firstName, prs.lastname, adr.city, adr.state
 from Person as prs 
 left join Address as adr on
 prs.personId = adr.personId
+
 ---------------------------------------------------------------------------------------------
 --> PostgreSQL
 ---------------------------------------------------------------------------------------------
