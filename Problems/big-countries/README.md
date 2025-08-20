@@ -1,8 +1,4 @@
-# Big Countries SQL Challenge
-
-This repository contains an SQL solution to the **Big Countries** problem.  
-The task is based on the `World` table, which provides details about countries such as their area, population, continent, and GDP.  
-
+# Big Countries
 ---
 
 ## Problem Statement
