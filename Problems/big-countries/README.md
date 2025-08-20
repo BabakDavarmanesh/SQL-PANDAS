@@ -1,33 +1,36 @@
-Table: World
+# Big Countries SQL Challenge
 
-+-------------+---------+
-| Column Name | Type    |
-+-------------+---------+
-| name        | varchar |
-| continent   | varchar |
-| area        | int     |
-| population  | int     |
-| gdp         | bigint  |
-+-------------+---------+
-name is the primary key (column with unique values) for this table.
-Each row of this table gives information about the name of a country, the continent to which it belongs, its area, the population, and its GDP value.
- 
+This repository contains an SQL solution to the **Big Countries** problem.  
+The task is based on the `World` table, which provides details about countries such as their area, population, continent, and GDP.  
 
-A country is big if:
+---
 
-it has an area of at least three million (i.e., 3000000 km2), or
-it has a population of at least twenty-five million (i.e., 25000000).
-Write a solution to find the name, population, and area of the big countries.
+## Problem Statement
 
-Return the result table in any order.
+We are given the following table:
 
-The result format is in the following example.
+| Column Name | Type    | Description                                      |
+|-------------|---------|--------------------------------------------------|
+| name        | varchar | Primary key; unique name of the country           |
+| continent   | varchar | Continent where the country is located           |
+| area        | int     | Area of the country in square kilometers         |
+| population  | int     | Population of the country                        |
+| gdp         | bigint  | GDP of the country                               |
 
- 
+Each row represents information about a country.  
 
-Example 1:
+A **country is considered big if**:
+- Its area is **at least 3,000,000 km²**, OR  
+- Its population is **at least 25,000,000**.  
 
-Input: 
+We need to return the `name`, `population`, and `area` of the **big countries**.
+
+---
+
+## Example
+
+### Input
+```
 World table:
 +-------------+-----------+---------+------------+--------------+
 | name        | continent | area    | population | gdp          |
@@ -38,10 +41,36 @@ World table:
 | Andorra     | Europe    | 468     | 78115      | 3712000000   |
 | Angola      | Africa    | 1246700 | 20609294   | 100990000000 |
 +-------------+-----------+---------+------------+--------------+
-Output: 
+```
+
+### Output
+```
 +-------------+------------+---------+
 | name        | population | area    |
 +-------------+------------+---------+
 | Afghanistan | 25500100   | 652230  |
 | Algeria     | 37100000   | 2381741 |
 +-------------+------------+---------+
+```
+
+---
+
+## SQL Solution
+
+```sql
+SELECT name, population, area
+FROM World
+WHERE area >= 3000000
+   OR population >= 25000000;
+```
+
+---
+
+## Notes
+- The solution works on most SQL databases (MySQL, PostgreSQL, SQL Server, Oracle).  
+- The result can be returned in any order.  
+
+---
+
+## Usage
+You can run this query in your preferred SQL environment after creating and populating the `World` table.
