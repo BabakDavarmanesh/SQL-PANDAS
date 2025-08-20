@@ -52,24 +52,6 @@ World table:
 | Algeria     | 37100000   | 2381741 |
 +-------------+------------+---------+
 ```
-
----
-
-## SQL Solution
-
-```sql
-SELECT name, population, area
-FROM World
-WHERE area >= 3000000
-   OR population >= 25000000;
-```
-
----
-
-## Notes
-- The solution works on most SQL databases (MySQL, PostgreSQL, SQL Server, Oracle).  
-- The result can be returned in any order.  
-
 ---
 
 ## Usage
