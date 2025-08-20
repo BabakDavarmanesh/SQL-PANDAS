@@ -16,6 +16,6 @@ Each problem has its own folder inside [`problems/`](./problems), with:
 - **sample.csv** → small dataset for quick testing
 ---
 ## 📑 Table of Contents
-- [Big Countries](problems/big-countries)  
+- [Big Countries](Problems/big-countries)
 - [Department Highest Salary](problems/department-highest-salary)  
 - [Rank Scores](problems/rank-scores) 
