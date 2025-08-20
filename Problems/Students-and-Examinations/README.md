@@ -1,56 +1,71 @@
-# Students' Exam Attendance
+Table: Students
 
-Find the number of times each student attended each exam.
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| student_id    | int     |
+| student_name  | varchar |
++---------------+---------+
+student_id is the primary key (column with unique values) for this table.
+Each row of this table contains the ID and the name of one student in the school.
+ 
 
-Return the result ordered by `student_id` and `subject_name`.
+Table: Subjects
 
----
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| subject_name | varchar |
++--------------+---------+
+subject_name is the primary key (column with unique values) for this table.
+Each row of this table contains the name of one subject in the school.
+ 
 
-## Schema
+Table: Examinations
 
-**Table: `Students`**
-```
-student_id INT PRIMARY KEY
-student_name VARCHAR
-```
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| student_id   | int     |
+| subject_name | varchar |
++--------------+---------+
+There is no primary key (column with unique values) for this table. It may contain duplicates.
+Each student from the Students table takes every course from the Subjects table.
+Each row of this table indicates that a student with ID student_id attended the exam of subject_name.
+ 
 
-**Table: `Subjects`**
-```
-subject_name VARCHAR PRIMARY KEY
-```
+Write a solution to find the number of times each student attended each exam.
 
-**Table: `Examinations`**
-```
-student_id INT
-subject_name VARCHAR
--- (May contain duplicates; no primary key)
--- Each student takes every course; each row is an attendance record for an exam.
-```
+Return the result table ordered by student_id and subject_name.
 
----
+The result format is in the following example.
 
-## Example
+ 
 
-**Input**  
+Example 1:
 
-**Students**
+Input: 
+Students table:
++------------+--------------+
 | student_id | student_name |
-|------------|---------------|
-| 1          | Alice         |
-| 2          | Bob           |
-| 13         | John          |
-| 6          | Alex          |
-
-**Subjects**
++------------+--------------+
+| 1          | Alice        |
+| 2          | Bob          |
+| 13         | John         |
+| 6          | Alex         |
++------------+--------------+
+Subjects table:
++--------------+
 | subject_name |
-|--------------|
++--------------+
 | Math         |
 | Physics      |
 | Programming  |
-
-**Examinations**
++--------------+
+Examinations table:
++------------+--------------+
 | student_id | subject_name |
-|------------|--------------|
++------------+--------------+
 | 1          | Math         |
 | 1          | Physics      |
 | 1          | Programming  |
@@ -58,14 +73,15 @@ subject_name VARCHAR
 | 1          | Physics      |
 | 1          | Math         |
 | 13         | Math         |
-| 13          | Programming  |
+| 13         | Programming  |
 | 13         | Physics      |
 | 2          | Math         |
 | 1          | Math         |
-
-**Output**
++------------+--------------+
+Output: 
++------------+--------------+--------------+----------------+
 | student_id | student_name | subject_name | attended_exams |
-|------------|--------------|--------------|----------------|
++------------+--------------+--------------+----------------+
 | 1          | Alice        | Math         | 3              |
 | 1          | Alice        | Physics      | 2              |
 | 1          | Alice        | Programming  | 1              |
@@ -78,5 +94,10 @@ subject_name VARCHAR
 | 13         | John         | Math         | 1              |
 | 13         | John         | Physics      | 1              |
 | 13         | John         | Programming  | 1              |
-
----
++------------+--------------+--------------+----------------+
+Explanation: 
+The result table should contain all students and all subjects.
+Alice attended the Math exam 3 times, the Physics exam 2 times, and the Programming exam 1 time.
+Bob attended the Math exam 1 time, the Programming exam 1 time, and did not attend the Physics exam.
+Alex did not attend any exams.
+John attended the Math exam 1 time, the Physics exam 1 time, and the Programming exam 1 time.
