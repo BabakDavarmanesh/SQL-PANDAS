@@ -20,7 +20,6 @@ A **country is considered big if**:
 - Its population is **at least 25,000,000**.  
 
 We need to return the `name`, `population`, and `area` of the **big countries**.
-
 ---
 
 ## Example
